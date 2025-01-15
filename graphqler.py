@@ -580,7 +580,8 @@ def main():
     QueryRunner.url = args.url
 
     if args.file is not None:
-        schema = open(args.file).read()
+        with open(args.file) as f:
+            schema = json.loads(f.read())
         
     if args.cookie is not None:
         cookie_dir = {}
